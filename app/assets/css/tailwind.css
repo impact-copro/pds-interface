@@ -1,0 +1,96 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --font-sans: "TASAOrbiter", sans-serif;
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-primary: var(--primary);
+}
+
+:root {
+  --background: oklch(1 0 0);
+  --foreground: oklch(0 0 0);
+  --primary: rgb(21, 110, 225);
+}
+
+.dark {
+  --background: oklch(0 0 0);
+  --foreground: oklch(1 0 0);
+}
+
+@layer base {
+  body {
+    @apply bg-background text-foreground;
+  }
+  :root {
+    /* ... */
+    --vis-tooltip-background-color: none !important;
+    --vis-tooltip-border-color: none !important;
+    --vis-tooltip-text-color: none !important;
+    --vis-tooltip-shadow-color: none !important;
+    --vis-tooltip-backdrop-filter: none !important;
+    --vis-tooltip-padding: none !important;
+    --vis-primary-color: var(--primary);
+    
+    /* change to any hsl value you want */
+    --vis-secondary-color: 160 81% 40%;
+    --vis-text-color: var(--muted-foreground);
+  }
+}
+
+/* Nuxt Chart */
+
+.dark {
+  /* Define your theme variables */
+  --custom-primary: oklch(0.72 0.192 149.58);
+  --custom-secondary: oklch(0.63 0.1963 157.86);
+  --custom-tooltip-label: rgba(255, 255, 255, 0.5);
+  --custom-tooltip-value: rgba(255, 255, 255, 1);
+  --custom-axis-grid: rgba(255, 255, 255, 0.15);
+  --custom-tooltip-bg: #121212;
+  --custom-tooltip-border: none;
+  --custom-tooltip-padding: 0;
+  --custom-tooltip-text: rgba(255, 255, 255, 0.5);
+  --custom-axis-tick-label: rgba(255, 255, 255, 0.5);
+  --custom-legend-label: rgba(255, 255, 255, 0.75);
+  --custom-axis-label: rgba(255, 255, 255, 0.5);
+  --custom-donut-bg: transparent;
+
+  /* Map Unovis (vis-) variables to your theme variables */
+  --vis-color0: var(--custom-primary) !important;
+  --vis-color1: var(--custom-secondary) !important; 
+
+  --tooltip-label-color: var(--custom-tooltip-label) !important;
+  --tooltip-value-color: var(--custom-tooltip-value) !important;
+
+  --vis-tooltip-background-color: var(--custom-tooltip-bg) !important;
+  --vis-tooltip-border-color: var(--custom-tooltip-border) !important;
+  --vis-tooltip-border-radius: 6px !important;
+  --vis-tooltip-padding: var(--custom-tooltip-padding) !important;
+  --vis-tooltip-text-color: var(--custom-tooltip-text) !important;
+  --vis-tooltip-text-color: var(--custom-tooltip-text) !important;
+
+  --vis-axis-grid-color: var(--custom-axis-grid) !important;
+  --vis-axis-tick-color: var(--custom-axis-grid) !important;
+  --vis-axis-tick-label-color: var(--custom-axis-tick-label) !important;
+  --vis-axis-label-color: var(--custom-axis-label) !important;
+  --vis-legend-label-color: var(--custom-legend-label) !important;
+  --vis-donut-background-color: var(--custom-donut-bg) !important;
+
+  --steps-bg: #f3f4f6 !important;
+  --steps-bg-complete: #22c55e !important;
+  --steps-border: #e5e7eb !important;
+  --progress-bg: #e5e7eb !important;
+}
+
+/* Fonts */
+@font-face {
+  font-family: 'TASAOrbiter';
+  font-weight: 100 900;
+  font-display: block;
+  src: url('~/assets/fonts/TASAOrbiter-VariableFont_wght.ttf') format('truetype-variations');
+  font-style: normal;
+}

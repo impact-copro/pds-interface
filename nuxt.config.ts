@@ -1,4 +1,5 @@
-// https://nuxt.com/docs/api/configuration/nuxt-config
+import tailwindcss from '@tailwindcss/vite'
+
 export default defineNuxtConfig({
   compatibilityDate: '2025-07-15',
   runtimeConfig: {
@@ -11,5 +12,46 @@ export default defineNuxtConfig({
     },
   },
   devtools: { enabled: true },
-  modules: ['@nuxtjs/supabase']
+  modules: [
+    '@nuxtjs/supabase',
+    'motion-v/nuxt',
+    '@nuxtjs/color-mode',
+    'nuxt-charts',
+    'shadcn-nuxt',
+  ],
+  css: ['~/assets/css/tailwind.css'],
+  vite: {
+    plugins: [
+      tailwindcss(),
+    ],
+  },
+  colorMode: {
+    preference: 'system',
+    fallback: 'system',
+    hid: 'nuxt-color-mode-script',
+    globalName: '__NUXT_COLOR_MODE__',
+    componentName: 'ColorScheme',
+    classPrefix: '',
+    classSuffix: '',
+    storage: 'localStorage',
+    storageKey: 'nuxt-color-mode'
+  },
+  supabase: {
+    redirectOptions: {
+      login: '/login',
+      cookieRedirect: false,
+      callback: '/confirm',
+    },
+  },
+  shadcn: {
+    /**
+     * Prefix for all the imported component
+     */
+    prefix: '',
+    /**
+     * Directory that the component lives in.
+     * @default "./components/ui"
+     */
+    componentDir: './app/components/ui'
+  },
 })
