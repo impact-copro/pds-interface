@@ -1,6 +1,6 @@
 import { Resend } from 'resend'
 import { serverSupabaseServiceRole } from '#supabase/server'
-import { getPdsData } from '../../../shared/utils/getPdsData'
+import { getPdsData } from "#shared/utils/getPdsData"
 import type { Building } from '../../../shared/types/building'
 import path from 'path'
 import fs from 'fs'

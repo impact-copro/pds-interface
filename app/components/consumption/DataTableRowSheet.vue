@@ -142,9 +142,12 @@ const qminWeeklyDiffClass = computed(() => {
  <Sheet v-model:open="openProxy" :modal="false">
     <SheetContent @pointer-down-outside="preventSheetCloseOnTableClick" class="overflow-y-auto">
       <SheetHeader class="p-0">
-        <div class="flex gap-4 items-center">
+        <div class="flex flex-col gap-2 items-start">
           <SheetTitle class="text-2xl font-bold">{{ props.pds?.building?.name }}</SheetTitle>
-          <div class="flex gap-2">
+          <SheetDescription>
+            Numéro de compteur : <span class="font-bold text-primary">{{ props.pds?.consumption?.pds }}</span>
+          </SheetDescription>
+          <div class="flex flex-wrap gap-2">
             <TagBadge 
               v-if="props.pds?.building?.missions_status"
               v-for="status in props.pds?.building?.missions_status"
@@ -153,9 +156,6 @@ const qminWeeklyDiffClass = computed(() => {
             />
           </div>
         </div>
-        <SheetDescription>
-          Numéro de compteur : <span class="font-bold text-primary">{{ props.pds?.consumption?.pds }}</span>
-        </SheetDescription>
       </SheetHeader>
       <div class="flex flex-col gap-2">
         <Table class="table-fixed flex-shrink-0 w-full mb-6">
