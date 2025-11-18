@@ -7,7 +7,7 @@ import type { pdsData } from '../../../shared/types/pdsData'
 import type { Building } from '../../../shared/types/building'
 
 // Utils
-import { getPdsData } from '../../../shared/utils/getPdsData'
+import { getPdsData } from "#shared/utils/getPdsData"
 import { columns } from './columns'
 
 const supabase = useSupabaseClient()
