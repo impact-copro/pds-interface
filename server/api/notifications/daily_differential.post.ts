@@ -71,7 +71,7 @@ export default defineEventHandler(async (event) => {
     <div style="max-width:480px; margin:auto; background-color:#ffffff; border-radius:12px; box-shadow:0 2px 6px rgba(0,0,0,0.05); padding:32px;">
       <h2 style="font-size:24px; font-weight:600; margin-bottom:16px;">Suivi des différentiels quotidien</h2>
       <p style="font-size:14px; color:#374151; margin-bottom:24px;">
-        Voici les différentiels en date du {{ date }} qui recquierts votre attention
+        Voici les différentiels en date du {{ date }} qui requièrent votre attention
       </p>
       <h3 style="font-size:16px; font-weight:600; margin-bottom:16px; text-align:left;">Écoulement permanent</h3>
       <div style="margin-bottom:24px;">
@@ -105,14 +105,14 @@ export default defineEventHandler(async (event) => {
 
   const getQminJ1 = (item: typeof qminWarningList[0]): string => {
     if (item.consumption?.qmin_daily_differential != null && item.consumption?.last_qmin != null) {
-      return formatDifferential(item.consumption.last_qmin - item.consumption.qmin_daily_differential)
+      return Number(formatDifferential(item.consumption.last_qmin - item.consumption.qmin_daily_differential)).toFixed(0)
     }
     return ''
   }
 
   const getQminJ7 = (item: typeof qminWarningList[0]): string => {
     if (item.consumption?.qmin_weekly_differential != null && item.consumption?.last_qmin != null) {
-      return formatDifferential(item.consumption.last_qmin - item.consumption.qmin_weekly_differential)
+      return Number(formatDifferential(item.consumption.last_qmin - item.consumption.qmin_weekly_differential)).toFixed(0)
     }
     return ''
   }
