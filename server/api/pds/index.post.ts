@@ -150,11 +150,11 @@ export default defineEventHandler(async (event) => {
     newIndexRows = newIndexRows.map(index => {
       return {
         index: toFloatOrNull(index[2]),
-        date_index: formatDateWithTime(index[1], "+02:00").toISOString(),
+        date_index: formatDateWithTime(index[1]).toISOString(),
         source: index[3],
         quality: toIntOrNull(index[4]),
         rank: toIntOrNull(index[6]),
-        last_modified: formatDateWithTime(index[5], "+02:00").toISOString(),
+        last_modified: formatDateWithTime(index[5]).toISOString(),
         day: formatDateWithoutTime(index[7]),
         pds: index[0]
       }
@@ -180,9 +180,9 @@ export default defineEventHandler(async (event) => {
     // Format newQminRows for Supabase
     newQminRows = newQminRows.map(qmin => {
       return {
-        reference_date: formatDateWithTime(qmin[1], "+02:00").toISOString(),
+        reference_date: formatDateWithTime(qmin[1]).toISOString(),
         qmin: toIntOrNull(qmin[2]),
-        last_modified: formatDateWithTime(qmin[3], "+02:00").toISOString(),
+        last_modified: formatDateWithTime(qmin[3]).toISOString(),
         rank: toIntOrNull(qmin[4]),
         pds: qmin[0]
       }
